@@ -975,23 +975,7 @@
 <a href="#974" id="974">974</a>
 <a href="#975" id="975">975</a>
 <a href="#976" id="976">976</a>
-<a href="#977" id="977">977</a>
-<a href="#978" id="978">978</a>
-<a href="#979" id="979">979</a>
-<a href="#980" id="980">980</a>
-<a href="#981" id="981">981</a>
-<a href="#982" id="982">982</a>
-<a href="#983" id="983">983</a>
-<a href="#984" id="984">984</a>
-<a href="#985" id="985">985</a>
-<a href="#986" id="986">986</a>
-<a href="#987" id="987">987</a>
-<a href="#988" id="988">988</a>
-<a href="#989" id="989">989</a>
-<a href="#990" id="990">990</a>
-<a href="#991" id="991">991</a>
-<a href="#992" id="992">992</a>
-<a href="#993" id="993">993</a></pre></div><pre class="rust"><code><span class="kw">mod </span>constant;
+<a href="#977" id="977">977</a></pre></div><pre class="rust"><code><span class="kw">mod </span>constant;
 <span class="kw">mod </span>declare;
 <span class="kw">mod </span>entry;
 <span class="kw">mod </span>type_;
@@ -1330,17 +1314,7 @@
 
 <span class="kw">impl </span>CodegenArgs {
     <span class="kw">pub fn </span>from_session(sess: <span class="kw-2">&amp;</span>Session) -&gt; <span class="self">Self </span>{
-        <span class="comment">// Split comma-separated arguments within each llvm_args entry
-        // This handles cases like "--disassemble-fn=foo,--allow-fragment-no-output"
-        </span><span class="kw">let </span>expanded_args: Vec&lt;String&gt; = sess
-            .opts
-            .cg
-            .llvm_args
-            .iter()
-            .flat_map(|arg| arg.split(<span class="string">','</span>).map(|s| s.to_string()))
-            .collect();
-
-        <span class="kw">match </span>CodegenArgs::parse(<span class="kw-2">&amp;</span>expanded_args) {
+        <span class="kw">match </span>CodegenArgs::parse(<span class="kw-2">&amp;</span>sess.opts.cg.llvm_args) {
             <span class="prelude-val">Ok</span>(ok) =&gt; ok,
             <span class="prelude-val">Err</span>(err) =&gt; sess
                 .dcx()
@@ -1423,11 +1397,6 @@
                 <span class="string">"disables SPIR-V Storage Class inference"</span>,
             );
             opts.optflag(<span class="string">""</span>, <span class="string">"no-structurize"</span>, <span class="string">"disables CFG structurization"</span>);
-            opts.optflag(
-                <span class="string">""</span>,
-                <span class="string">"allow-fragment-no-output"</span>,
-                <span class="string">"allow fragment shaders with no output operations"</span>,
-            );
 
             opts.optmulti(
                 <span class="string">""</span>,
@@ -1636,7 +1605,6 @@
             <span class="comment">// FIXME(eddyb) deduplicate between `CodegenArgs` and `linker::Options`.
             </span>spirv_metadata,
             keep_link_exports: <span class="bool-val">false</span>,
-            allow_fragment_no_output: matches.opt_present(<span class="string">"allow-fragment-no-output"</span>),
 
             <span class="comment">// NOTE(eddyb) these are debugging options that used to be env vars
             // (for more information see `docs/src/codegen-args.md`).
