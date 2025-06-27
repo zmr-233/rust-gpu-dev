@@ -820,7 +820,173 @@
 <a href="#819" id="819">819</a>
 <a href="#820" id="820">820</a>
 <a href="#821" id="821">821</a>
-<a href="#822" id="822">822</a></pre></div><pre class="rust"><code><span class="attr">#[cfg(test)]
+<a href="#822" id="822">822</a>
+<a href="#823" id="823">823</a>
+<a href="#824" id="824">824</a>
+<a href="#825" id="825">825</a>
+<a href="#826" id="826">826</a>
+<a href="#827" id="827">827</a>
+<a href="#828" id="828">828</a>
+<a href="#829" id="829">829</a>
+<a href="#830" id="830">830</a>
+<a href="#831" id="831">831</a>
+<a href="#832" id="832">832</a>
+<a href="#833" id="833">833</a>
+<a href="#834" id="834">834</a>
+<a href="#835" id="835">835</a>
+<a href="#836" id="836">836</a>
+<a href="#837" id="837">837</a>
+<a href="#838" id="838">838</a>
+<a href="#839" id="839">839</a>
+<a href="#840" id="840">840</a>
+<a href="#841" id="841">841</a>
+<a href="#842" id="842">842</a>
+<a href="#843" id="843">843</a>
+<a href="#844" id="844">844</a>
+<a href="#845" id="845">845</a>
+<a href="#846" id="846">846</a>
+<a href="#847" id="847">847</a>
+<a href="#848" id="848">848</a>
+<a href="#849" id="849">849</a>
+<a href="#850" id="850">850</a>
+<a href="#851" id="851">851</a>
+<a href="#852" id="852">852</a>
+<a href="#853" id="853">853</a>
+<a href="#854" id="854">854</a>
+<a href="#855" id="855">855</a>
+<a href="#856" id="856">856</a>
+<a href="#857" id="857">857</a>
+<a href="#858" id="858">858</a>
+<a href="#859" id="859">859</a>
+<a href="#860" id="860">860</a>
+<a href="#861" id="861">861</a>
+<a href="#862" id="862">862</a>
+<a href="#863" id="863">863</a>
+<a href="#864" id="864">864</a>
+<a href="#865" id="865">865</a>
+<a href="#866" id="866">866</a>
+<a href="#867" id="867">867</a>
+<a href="#868" id="868">868</a>
+<a href="#869" id="869">869</a>
+<a href="#870" id="870">870</a>
+<a href="#871" id="871">871</a>
+<a href="#872" id="872">872</a>
+<a href="#873" id="873">873</a>
+<a href="#874" id="874">874</a>
+<a href="#875" id="875">875</a>
+<a href="#876" id="876">876</a>
+<a href="#877" id="877">877</a>
+<a href="#878" id="878">878</a>
+<a href="#879" id="879">879</a>
+<a href="#880" id="880">880</a>
+<a href="#881" id="881">881</a>
+<a href="#882" id="882">882</a>
+<a href="#883" id="883">883</a>
+<a href="#884" id="884">884</a>
+<a href="#885" id="885">885</a>
+<a href="#886" id="886">886</a>
+<a href="#887" id="887">887</a>
+<a href="#888" id="888">888</a>
+<a href="#889" id="889">889</a>
+<a href="#890" id="890">890</a>
+<a href="#891" id="891">891</a>
+<a href="#892" id="892">892</a>
+<a href="#893" id="893">893</a>
+<a href="#894" id="894">894</a>
+<a href="#895" id="895">895</a>
+<a href="#896" id="896">896</a>
+<a href="#897" id="897">897</a>
+<a href="#898" id="898">898</a>
+<a href="#899" id="899">899</a>
+<a href="#900" id="900">900</a>
+<a href="#901" id="901">901</a>
+<a href="#902" id="902">902</a>
+<a href="#903" id="903">903</a>
+<a href="#904" id="904">904</a>
+<a href="#905" id="905">905</a>
+<a href="#906" id="906">906</a>
+<a href="#907" id="907">907</a>
+<a href="#908" id="908">908</a>
+<a href="#909" id="909">909</a>
+<a href="#910" id="910">910</a>
+<a href="#911" id="911">911</a>
+<a href="#912" id="912">912</a>
+<a href="#913" id="913">913</a>
+<a href="#914" id="914">914</a>
+<a href="#915" id="915">915</a>
+<a href="#916" id="916">916</a>
+<a href="#917" id="917">917</a>
+<a href="#918" id="918">918</a>
+<a href="#919" id="919">919</a>
+<a href="#920" id="920">920</a>
+<a href="#921" id="921">921</a>
+<a href="#922" id="922">922</a>
+<a href="#923" id="923">923</a>
+<a href="#924" id="924">924</a>
+<a href="#925" id="925">925</a>
+<a href="#926" id="926">926</a>
+<a href="#927" id="927">927</a>
+<a href="#928" id="928">928</a>
+<a href="#929" id="929">929</a>
+<a href="#930" id="930">930</a>
+<a href="#931" id="931">931</a>
+<a href="#932" id="932">932</a>
+<a href="#933" id="933">933</a>
+<a href="#934" id="934">934</a>
+<a href="#935" id="935">935</a>
+<a href="#936" id="936">936</a>
+<a href="#937" id="937">937</a>
+<a href="#938" id="938">938</a>
+<a href="#939" id="939">939</a>
+<a href="#940" id="940">940</a>
+<a href="#941" id="941">941</a>
+<a href="#942" id="942">942</a>
+<a href="#943" id="943">943</a>
+<a href="#944" id="944">944</a>
+<a href="#945" id="945">945</a>
+<a href="#946" id="946">946</a>
+<a href="#947" id="947">947</a>
+<a href="#948" id="948">948</a>
+<a href="#949" id="949">949</a>
+<a href="#950" id="950">950</a>
+<a href="#951" id="951">951</a>
+<a href="#952" id="952">952</a>
+<a href="#953" id="953">953</a>
+<a href="#954" id="954">954</a>
+<a href="#955" id="955">955</a>
+<a href="#956" id="956">956</a>
+<a href="#957" id="957">957</a>
+<a href="#958" id="958">958</a>
+<a href="#959" id="959">959</a>
+<a href="#960" id="960">960</a>
+<a href="#961" id="961">961</a>
+<a href="#962" id="962">962</a>
+<a href="#963" id="963">963</a>
+<a href="#964" id="964">964</a>
+<a href="#965" id="965">965</a>
+<a href="#966" id="966">966</a>
+<a href="#967" id="967">967</a>
+<a href="#968" id="968">968</a>
+<a href="#969" id="969">969</a>
+<a href="#970" id="970">970</a>
+<a href="#971" id="971">971</a>
+<a href="#972" id="972">972</a>
+<a href="#973" id="973">973</a>
+<a href="#974" id="974">974</a>
+<a href="#975" id="975">975</a>
+<a href="#976" id="976">976</a>
+<a href="#977" id="977">977</a>
+<a href="#978" id="978">978</a>
+<a href="#979" id="979">979</a>
+<a href="#980" id="980">980</a>
+<a href="#981" id="981">981</a>
+<a href="#982" id="982">982</a>
+<a href="#983" id="983">983</a>
+<a href="#984" id="984">984</a>
+<a href="#985" id="985">985</a>
+<a href="#986" id="986">986</a>
+<a href="#987" id="987">987</a>
+<a href="#988" id="988">988</a></pre></div><pre class="rust"><code><span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>test;
 
 <span class="kw">mod </span>dce;
@@ -845,7 +1011,7 @@
 <span class="kw">use </span><span class="kw">crate</span>::custom_insts;
 <span class="kw">use </span>either::Either;
 <span class="kw">use </span>rspirv::binary::{Assemble, Consumer};
-<span class="kw">use </span>rspirv::dr::{Block, Loader, Module, ModuleHeader, Operand};
+<span class="kw">use </span>rspirv::dr::{Block, Function, Loader, Module, ModuleHeader, Operand};
 <span class="kw">use </span>rspirv::spirv::{Op, StorageClass, Word};
 <span class="kw">use </span>rustc_data_structures::fx::FxHashMap;
 <span class="kw">use </span>rustc_errors::ErrorGuaranteed;
@@ -876,6 +1042,9 @@
     ///
     /// **Note**: currently only used for unit testing, and not exposed elsewhere.
     </span><span class="kw">pub </span>keep_link_exports: bool,
+
+    <span class="doccomment">/// Allow fragment shaders with no output operations (disables Issue #284 validation)
+    </span><span class="kw">pub </span>allow_fragment_no_output: bool,
 
     <span class="comment">// NOTE(eddyb) these are debugging options that used to be env vars
     // (for more information see `docs/src/codegen-args.md`).
@@ -1532,6 +1701,11 @@
             dce::dce(output);
         }
 
+        <span class="comment">// Validate fragment shaders after DCE to catch silent optimization failures
+        </span><span class="kw">if </span>!opts.allow_fragment_no_output {
+            validate_fragment_shader_outputs(sess, output)<span class="question-mark">?</span>;
+        }
+
         {
             <span class="kw">let </span>_timer = sess.timer(<span class="string">"link_remove_duplicate_debuginfo"</span>);
             duplicates::remove_duplicate_debuginfo(output);
@@ -1642,4 +1816,162 @@
         }
     }
 }
+
+<span class="doccomment">/// Validate that fragment shaders have meaningful output operations
+/// This catches the case described in issue #284 where fragment shaders
+/// are optimized to have no output, causing silent rendering failures
+</span><span class="kw">fn </span>validate_fragment_shader_outputs(sess: <span class="kw-2">&amp;</span>Session, module: <span class="kw-2">&amp;</span>Module) -&gt; <span class="prelude-ty">Result</span>&lt;()&gt; {
+    <span class="kw">use </span>rspirv::spirv::{ExecutionModel, Op};
+
+    <span class="comment">// Find all fragment entry points
+    </span><span class="kw">for </span>entry <span class="kw">in </span><span class="kw-2">&amp;</span>module.entry_points {
+        <span class="kw">if </span>entry.class.opcode == Op::EntryPoint {
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(execution_model) = entry.operands.first() {
+                <span class="kw">if </span>execution_model.unwrap_execution_model() == ExecutionModel::Fragment {
+                    <span class="kw">let </span>function_id = entry.operands[<span class="number">1</span>].unwrap_id_ref();
+                    <span class="kw">let </span>entry_name = entry.operands[<span class="number">2</span>].unwrap_literal_string();
+
+                    <span class="comment">// Check if this fragment shader has meaningful output operations
+                    </span><span class="kw">if </span>!fragment_shader_writes_output(module, function_id) {
+                        <span class="kw">let </span><span class="kw-2">mut </span>err = sess.dcx().struct_err(<span class="macro">format!</span>(
+                            <span class="string">"fragment shader `{}` produces no output"</span>,
+                            entry_name
+                        ));
+
+                        err = err.with_help(
+                            <span class="string">"fragment shaders must write to output parameters to produce visible results"
+                        </span>).with_note(
+                            <span class="string">"use complete assignment like `*out_frag_color = vec4(r, g, b, a)` instead of partial component assignments"
+                        </span>).with_note(
+                            <span class="string">"partial component assignments may be optimized away if not all components are written"
+                        </span>).with_note(
+                            <span class="string">"to disable this validation (e.g. for testing), use `--allow-fragment-no-output`"
+                        </span>);
+
+                        <span class="comment">// Look for the function to provide better diagnostics
+                        </span><span class="kw">if let </span><span class="prelude-val">Some</span>(func) = module
+                            .functions
+                            .iter()
+                            .find(|f| f.def_id() == <span class="prelude-val">Some</span>(function_id))
+                        {
+                            <span class="kw">if </span>has_partial_output_writes(module, func) {
+                                err = err.with_note(
+                                    <span class="string">"detected partial component writes (e.g., `out.x = value`) which were optimized away"
+                                </span>).with_help(
+                                    <span class="string">"write all components at once: `*out_frag_color = vec4(r, g, b, 1.0)`"
+                                </span>).with_note(
+                                    <span class="string">"alternatively, use `--allow-fragment-no-output` to disable this validation"
+                                </span>);
+                            }
+                        }
+
+                        <span class="kw">return </span><span class="prelude-val">Err</span>(err.emit());
+                    }
+                }
+            }
+        }
+    }
+
+    <span class="prelude-val">Ok</span>(())
+}
+
+<span class="doccomment">/// Check if a fragment shader function has any meaningful output writes
+</span><span class="kw">fn </span>fragment_shader_writes_output(module: <span class="kw-2">&amp;</span>Module, function_id: Word) -&gt; bool {
+    <span class="comment">// Find the function definition
+    </span><span class="kw">let </span>function = <span class="kw">match </span>module
+        .functions
+        .iter()
+        .find(|f| f.def_id() == <span class="prelude-val">Some</span>(function_id))
+    {
+        <span class="prelude-val">Some</span>(func) =&gt; func,
+        <span class="prelude-val">None </span>=&gt; <span class="kw">return </span><span class="bool-val">true</span>, <span class="comment">// If function not found, assume it's valid
+    </span>};
+
+    <span class="comment">// Check all instructions in the function for output writes
+    </span><span class="kw">for </span>block <span class="kw">in </span><span class="kw-2">&amp;</span>function.blocks {
+        <span class="kw">for </span>inst <span class="kw">in </span><span class="kw-2">&amp;</span>block.instructions {
+            <span class="kw">if </span>inst.class.opcode == Op::Store {
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(target_id) = inst.operands.first().and_then(|op| op.id_ref_any()) {
+                    <span class="kw">if </span>is_output_storage_variable(module, target_id) {
+                        <span class="kw">return </span><span class="bool-val">true</span>;
+                    }
+                }
+            }
+
+            <span class="comment">// Check function calls recursively
+            </span><span class="kw">if </span>inst.class.opcode == Op::FunctionCall {
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(callee_id) = inst.operands.first().and_then(|op| op.id_ref_any()) {
+                    <span class="kw">if </span>fragment_shader_writes_output(module, callee_id) {
+                        <span class="kw">return </span><span class="bool-val">true</span>;
+                    }
+                }
+            }
+        }
+    }
+
+    <span class="bool-val">false
+</span>}
+
+<span class="doccomment">/// Check if a fragment shader has partial output writes that might have been optimized away
+</span><span class="kw">fn </span>has_partial_output_writes(module: <span class="kw-2">&amp;</span>Module, function: <span class="kw-2">&amp;</span>Function) -&gt; bool {
+    <span class="kw">use </span>rspirv::spirv::Op;
+
+    <span class="comment">// Look for AccessChain operations on output variables
+    // This suggests the shader was trying to write individual components
+    </span><span class="kw">for </span>block <span class="kw">in </span><span class="kw-2">&amp;</span>function.blocks {
+        <span class="kw">for </span>inst <span class="kw">in </span><span class="kw-2">&amp;</span>block.instructions {
+            <span class="kw">if </span><span class="macro">matches!</span>(inst.class.opcode, Op::AccessChain | Op::InBoundsAccessChain) {
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(base_id) = inst.operands.first().and_then(|op| op.id_ref_any()) {
+                    <span class="kw">if </span>is_output_storage_variable(module, base_id) {
+                        <span class="kw">return </span><span class="bool-val">true</span>;
+                    }
+                }
+            }
+        }
+    }
+
+    <span class="bool-val">false
+</span>}
+
+<span class="doccomment">/// Check if a variable ID refers to an Output storage class variable
+</span><span class="kw">fn </span>is_output_storage_variable(module: <span class="kw-2">&amp;</span>Module, var_id: Word) -&gt; bool {
+    <span class="kw">use </span>rspirv::spirv::{Op, StorageClass};
+
+    <span class="comment">// Check direct output variables
+    </span><span class="kw">for </span>inst <span class="kw">in </span><span class="kw-2">&amp;</span>module.types_global_values {
+        <span class="kw">if </span>inst.result_id == <span class="prelude-val">Some</span>(var_id) &amp;&amp; inst.class.opcode == Op::Variable {
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(storage_class) = inst.operands.first() {
+                <span class="kw">return </span>storage_class.unwrap_storage_class() == StorageClass::Output;
+            }
+        }
+    }
+
+    <span class="comment">// Check if this is a pointer derived from an output variable
+    </span><span class="kw">for </span>inst <span class="kw">in </span><span class="kw-2">&amp;</span>module.types_global_values {
+        <span class="kw">if </span>inst.result_id == <span class="prelude-val">Some</span>(var_id)
+            &amp;&amp; <span class="macro">matches!</span>(inst.class.opcode, Op::AccessChain | Op::InBoundsAccessChain)
+        {
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(base_id) = inst.operands.first().and_then(|op| op.id_ref_any()) {
+                <span class="kw">return </span>is_output_storage_variable(module, base_id);
+            }
+        }
+    }
+
+    <span class="comment">// Check in function bodies for derived pointers
+    </span><span class="kw">for </span>function <span class="kw">in </span><span class="kw-2">&amp;</span>module.functions {
+        <span class="kw">for </span>block <span class="kw">in </span><span class="kw-2">&amp;</span>function.blocks {
+            <span class="kw">for </span>inst <span class="kw">in </span><span class="kw-2">&amp;</span>block.instructions {
+                <span class="kw">if </span>inst.result_id == <span class="prelude-val">Some</span>(var_id)
+                    &amp;&amp; <span class="macro">matches!</span>(inst.class.opcode, Op::AccessChain | Op::InBoundsAccessChain)
+                {
+                    <span class="kw">if let </span><span class="prelude-val">Some</span>(base_id) = inst.operands.first().and_then(|op| op.id_ref_any()) {
+                        <span class="kw">return </span>is_output_storage_variable(module, base_id);
+                    }
+                }
+            }
+        }
+    }
+
+    <span class="bool-val">false
+</span>}
 </code></pre></div></section></main></body></html>
